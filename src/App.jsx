@@ -18,7 +18,14 @@ export default function App() {
       <div className="min-h-screen bg-chatbg text-white">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<ChatPage />} />
+          <Route 
+            path="/" 
+            element={
+              <ProtectedRoute>
+                <ChatPage />
+              </ProtectedRoute>
+            } 
+          />
           <Route
             path="/admin"
             element={
@@ -27,7 +34,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </div>
     </AuthProvider>
