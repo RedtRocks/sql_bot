@@ -1,5 +1,5 @@
 const API_BASE = process.env.NODE_ENV === 'production' 
-  ? 'https://your-vercel-app.vercel.app' 
+  ? 'https://sql-bot-teal.vercel.app/' 
   : 'http://localhost:8000'
 
 function getAuthHeaders() {
