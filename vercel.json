@@ -19,27 +19,8 @@
       "dest": "/api/main.py"
     },
     {
-      "src": "/auth/(.*)",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/health",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/dist/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
-      "dest": "/dist/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/dist/index.html"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "."
-  }
+  ]
 }
