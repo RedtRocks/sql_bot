@@ -1,4 +1,6 @@
-const API_BASE = 'http://localhost:8000'
+const API_BASE = process.env.NODE_ENV === 'production' 
+  ? 'https://sql-bot-teal.vercel.app' 
+  : 'http://localhost:8000'
 
 export async function loginApi(username, password) {
   const response = await fetch(`${API_BASE}/auth/login`, {

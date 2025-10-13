@@ -12,31 +12,50 @@ function ProtectedRoute({ children, roles }) {
   return children
 }
 
+function AppContent() {
+  const { loading } = useAuth()
+  
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-chatbg text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-chatbg text-white">
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route 
+          path="/" 
+          element={
+            <ProtectedRoute>
+              <ChatPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-chatbg text-white">
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route 
-            path="/" 
-            element={
-              <ProtectedRoute>
-                <ChatPage />
-              </ProtectedRoute>
-            } 
-          />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute roles={["admin"]}>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </div>
+      <AppContent />
     </AuthProvider>
   )
 }
