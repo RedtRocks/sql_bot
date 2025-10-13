@@ -1,3 +1,4 @@
+# Vercel deployment fix - using api directory
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
