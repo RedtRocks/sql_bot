@@ -1,10 +1,51 @@
+# Backend source (use /api for deployment)
 backend/
+
+# Build artifacts and dependencies
 node_modules/
+.venv/
+venv/
+
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Environment files (set in Vercel dashboard instead)
 .env
+.env.local
+.env.*.local
+
+# Git
 .git/
+.gitignore
+
+# Database files (use remote DB)
 *.db
 *.sqlite
 *.sqlite3
+
+# Source files (already built to dist/)
+src/
+
+# Build output (this will be rebuilt by Vercel)
 dist/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Tests
+tests/
+test_*.py
+*_test.py

@@ -10,3 +10,5 @@ alembic==1.13.2
 python-dotenv==1.0.1
 azure-ai-inference==1.0.0b6
 slowapi==0.1.9
+passlib[bcrypt]==1.7.4
+cryptography==42.0.5
