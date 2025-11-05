@@ -22,8 +22,8 @@ export default function AdminDashboard() {
   const [loadingState, setLoadingState] = useState(false)
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>
-  // if (!user) return <Navigate to="/login" replace />
-  // if (user.role !== 'admin') return <Navigate to="/" replace />
+  if (!user) return <Navigate to="/login" replace />
+  if (user.role !== 'admin') return <Navigate to="/" replace />
 
   const handleAnalyze = async () => {
     await loadColumnAnalysis()
